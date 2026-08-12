@@ -1,77 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { lazy, Suspense, useEffect, useState } from 'react';
-// import Navigation from './components/Navigation';
-// import { translations } from "./i18n/translations"; 
 
-// const HomePage = lazy(() => import('./pages/HomePage'));
-// const MoviesPage = lazy(() => import('./pages/MoviesPage'));
-// const CastSearchPage = lazy(() => import('./pages/CastSearchPage'));
-// const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
-// const ActorDetailsPage = lazy(() => import('./pages/ActorDetailsPage'));
-// const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
-// const MovieReviews = lazy(() => import('./components/MovieReviews'));
-// const CastModal = lazy(() => import('./components/CastModal'));
-// const PersonMoviesModal = lazy(() => import('./components/PersonMoviesModal'));
+
+  const HomePage = lazy(() => import('./pages/HomePage'));
+  const SettingPage = lazy(() => import('./pages/SettingPage'));
+  import NoteEditor from "./components/NoteEditor.jsx";
+  import NotFoundPage from "./pages/NotFoundPage"
+
  
 const App = () => {
-    return(
-      <p className='text-red-600'> Привет</p>
-    )
-    
-//   const [isDark, setIsDark] = useState(() => {
-
-//   const savedTheme = localStorage.getItem('theme');
-//   return savedTheme === 'dark';
-//     });
-
-   //  const [language, setLanguage] = useState("en");
-   // const t = translations[language] || translations.en;
    
-   //    useEffect(() => {
-   //       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-   //                    }, [isDark]);
 
-//   return(
-  
-//   <div className={`min-h-screen w-full  px-4 py-6
-//              ${isDark ? " bg-bg-dark text-text-dark"
-//                       : " bg-bg-light text-text-light "}`}>
-//     <Navigation 
-//        isDark={isDark} 
-//        setIsDark={setIsDark} 
-//        language={language}
-//        setLanguage={setLanguage}
-//        t={t}
-//        />
-   //  <Suspense fallback={<p>Loading...</p>}>
+  return(
+   <div className=''>
 
-       {/* Загрузка домашней страницы */}
-      // <Routes>
-        
-       
-       
-       {/* Загрузка страницы для поиска фильмов*/}
-        {/* <Route path="/movies" 
-               element={<MoviesPage 
-               isDark={isDark} 
-               t={t} 
-               language={language} />}
-          />  */}
+      <Suspense fallback={<p>Loading...</p>}>
+     <Routes>
+     
+       <Route path="/"              element={<HomePage />} />
+       <Route path="/notes/:noteId" element={<HomePage />} />
+       <Route path="/setting" element={<SettingPage />} />
+       <Route path="*"              element={<NotFoundPage />} 
+        />
 
-          
-
-        
-        
-
-        
-       {/* <Route path="*" element={<NotFoundPage />} />  
-      </Routes>
-
-    </Suspense> */}
-    {/* </div> */}
-  
-
-};
+     </Routes>
+     </Suspense>
+     </div>  
+      )   
+    }
 
 export default App;
 

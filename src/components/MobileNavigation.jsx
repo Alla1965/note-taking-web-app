@@ -1,0 +1,52 @@
+import {Link } from "react-router-dom";
+import {useTheme} from "../contex/ThemeContext.jsx";
+import HomeIcon from "./icons/HomeIcon.jsx";
+import ArchiveIcon from "./icons/ArchiveIcon.jsx";
+import TagIcon from "./icons/TagIcon.jsx";
+import SearchIcon from "./icons/SearchIcon.jsx";
+import SettingIcon from "./icons/SettingIcon.jsx";
+import NotesList from "./NotesList.jsx";
+
+
+const MobileNavigation = ({ className }) => {
+
+
+   const { theme, toggleTheme } = useTheme();
+
+  return (
+    <nav className="border-t  border-app-border 
+        shadow-[var(--app-shadow)] lg:hidden">
+        
+        <ul className="flex py-3 text-app-text-button text-preset-6 w-full divide-x divide-app-border">
+            <li className="flex flex-1 justify-center items-center flex-col md:gap-1 text-app-text  
+                            hover:text-blue-500">
+                 <HomeIcon   />
+                 <p className="hidden md:block">Home</p>
+            </li>
+            <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
+                            hover:text-blue-500"> 
+                 <SearchIcon   />
+                  <p className="hidden md:block">Search</p>
+            </li>
+            <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
+                    hover:text-blue-500"> 
+                 <ArchiveIcon   />
+                 <p className="hidden md:block">Archived</p>
+            </li>
+            <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
+                    hover:text-blue-500"> 
+                 <TagIcon   />
+                 <p className="hidden md:block">Tags</p>
+            </li>
+            <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
+                    hover:text-blue-500"> 
+                 <SettingIcon   />
+                 <p className="hidden md:block">Settings</p>
+            </li>
+        </ul>
+        
+    </nav>
+    );
+};
+
+export default MobileNavigation;

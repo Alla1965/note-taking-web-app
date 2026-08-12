@@ -1,1 +1,155 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family : "Inter", sans;
+  src: url("./assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf");
+  font-style:  normal;
+  font-weight: 100 900;
+  font-display: swap;
+           } 
+
+@font-face {
+  font-family : "Noto Serif", serif;
+  src: url("./assets/fonts/noto-serif/NotoSerif-VariableFont_wdth\,wght.ttf");
+  font-style:  normal;
+  font-weight: 100 900;
+  font-display: swap;
+           }
+
+ @font-face {
+  font-family : "Source Code Pro", monospace;
+  src: url("./assets/fonts/noto-serif/NotoSerif-VariableFont_wdth\,wght.ttf");
+  font-style:  normal;
+  font-weight: 100 900;
+  font-display: swap;
+           }
+
+@theme {
+    --font-inter: "Inter", sans, system-ui, sans-serif;
+    --font-noto-serif: "Noto Serif", serif;
+    --font-source-code-pro : "Source Code Pro", monospace;
+}
+
+@theme {
+  --text-preset-1: 1.5rem;
+  --text-preset-1--line-height: 1.2; 
+  --text-preset-1--letter-spacing: -0.5px; 
+  --text-preset-1--font-weight: 700; 
+
+  --text-preset-2: 1.25rem;
+  --text-preset-2--line-height: 1.2; 
+  --text-preset-2--letter-spacing: -0.5px; 
+  --text-preset-2--font-weight: 700; 
+
+  --text-preset-3: 1rem;
+  --text-preset-3--line-height: 1.2; 
+  --text-preset-3--letter-spacing: -0.3px; 
+  --text-preset-3--font-weight: 600; 
+
+  --text-preset-4: 0.875rem;
+  --text-preset-4--line-height: 1.2; 
+  --text-preset-4--letter-spacing: -0.2px; 
+  --text-preset-4--font-weight: 500; 
+
+  --text-preset-5: 0.875rem;
+  --text-preset-5--line-height: 1.2; 
+  --text-preset-5--letter-spacing: -0.2px; 
+  --text-preset-5--font-weight: 400; 
+
+  --text-preset-6: 0.75rem;
+  --text-preset-6--line-height: 1.2; 
+  --text-preset-6--letter-spacing: -0.2px; 
+  --text-preset-6--font-weight: 400; 
+
+--color-neutral-950:	#0E121B; /* light-hover-text */
+--color-neutral-900:	#191B25; /* dark-background */
+--color-neutral-800:	#232530; /* dark-border, hover-bg */
+--color-neutral-700:	#2B303B; /* light-text */
+--color-neutral-600:	#525866; /* dark-surface dark-border  */
+--color-neutral-500:	#717784; /* light,dark-text-mited */
+--color-neutral-400:	#99A0AE;/* dark-text-muted */
+--color-neutral-300:	#CACFD8; /* light-border */
+--color-neutral-200:	#E0E4EA;  /* light-surface, border dark-text*/
+--color-neutral-100:  #F3F5F8;  /* light-hover-bg */
+--color-neutral-50:	  #F5F7FA;
+--color-neutral-0:	  #FFFFFF ; /* light-backgrount , dark-hover-text*/
+
+--color-blue-700:	#2547D0;
+--color-blue-500:	#335CFF;
+--color-blue-50	: #EBF1FF;
+
+--color-green-500:	#21C16B;
+--color-green-100:	#D1FBE9;
+
+--color-red-500:	#FB3748;
+--color-red-100:	#FFD5D8;
+
+  
+}
+/* 2. Создание Tailwind-классов */
+
+@theme inline {
+  --color-app-background: var(--app-background);
+  --color-app-surface: var(--app-surface);
+  --color-app-text: var(--app-text);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-border: var(--app-border);
+  --color-app-bright-text: var(--app-bright-text);
+  --color-app-hover-bg: var(--app-hover-bg);
+  --color-app-border: var(--app-border);
+  --color-app-editor-text: var(--app-editor-text);
+  --color-app-text-button: var(--app-text-button);
+  
+
+}
+
+/* 3. Значения светлой темы */
+[data-theme="light"] {
+  --app-background: var(--color-neutral-0);
+  --app-background-section: var(--color-neutral-0);
+  --app-surface: var(--color-neutral-200);
+  --app-text: var(--color-neutral-700);
+  --app-text-muted: var(--color-neutral-500);
+  --app-border: var(--color-neutral-200);
+  --app-bright-text: var(--color-neutral-950);
+  --app-hover-bg: var(--color-neutral-100);
+  --app-border: var(--color-neutral-300);
+  --app-editor-text: var(--color-neutral-800);
+  --app-text-button: var(--color-neutral-600);
+  --app-shadow: 0 -4px 6px 0 rgba(240, 240, 240, 0.6);
+
+}
+
+/* 4. Значения тёмной темы */
+[data-theme="dark"] {
+  --app-background: var(--color-neutral-950);
+  --app-background-section: var(--color-neutral-800);
+  --app-surface: var(--color-neutral-600);
+  --app-text: var(--color-neutral-200);
+  --app-text-muted: var(--color-neutral-400);
+  --app-border: var(--color-neutral-800);
+  --app-bright-text: var(--color-neutral-0);
+  --app-hover-bg: var(--color-neutral-800);
+  --app-border: var(--color-neutral-600);
+  --app-editor-text: var(--color-neutral-100);
+  --app-text-button: var(--color-neutral-400);
+  --app-shadow: 0 -4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.notes-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-text-muted) var(--app-background);
+}
+
+.notes-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notes-scrollbar::-webkit-scrollbar-track {
+  background: var(--app-background);
+}
+
+.notes-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--app-text-muted);
+  border-radius: 999px;
+}
