@@ -136,6 +136,20 @@
   --app-shadow: 0 -4px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
+[data-font-theme="sans-serif"] {
+  font-family: "Inter", sans-serif;
+}
+
+[data-font-theme="serif"] {
+  font-family: "Noto Serif", serif;
+}
+
+[data-font-theme="monospace"] {
+  font-family: "Source Code Pro", monospace;
+}
+
+
+
 .notes-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--app-text-muted) var(--app-background);

@@ -1,4 +1,4 @@
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useTheme} from "../contex/ThemeContext.jsx";
 import HomeIcon from "./icons/HomeIcon.jsx";
 import ArchiveIcon from "./icons/ArchiveIcon.jsx";
@@ -10,21 +10,25 @@ import NotesList from "./NotesList.jsx";
 
 const MobileNavigation = ({ className }) => {
 
-
-   const { theme, toggleTheme } = useTheme();
+const { theme } = useTheme();
+// const {fontTheme, setFontTheme,} = useTheme();
 
   return (
     <nav className="border-t  border-app-border 
-        shadow-[var(--app-shadow)] lg:hidden">
+                    shadow-[var(--app-shadow)] lg:hidden">
         
-        <ul className="flex py-3 text-app-text-button text-preset-6 w-full divide-x divide-app-border">
-            <li className="flex flex-1 justify-center items-center flex-col md:gap-1 text-app-text  
-                            hover:text-blue-500">
+        <ul className="flex py-3 text-app-text-button text-preset-6 w-full 
+                       divide-x divide-app-border">
+                        
+            <Link  to="/" 
+                    className="flex flex-1 justify-center items-center flex-col md:gap-1 text-app-text  
+                               hover:text-blue-500">
                  <HomeIcon   />
                  <p className="hidden md:block">Home</p>
-            </li>
+            </Link>
+
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
-                            hover:text-blue-500"> 
+                           hover:text-blue-500"> 
                  <SearchIcon   />
                   <p className="hidden md:block">Search</p>
             </li>
@@ -40,8 +44,11 @@ const MobileNavigation = ({ className }) => {
             </li>
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
                     hover:text-blue-500"> 
-                 <SettingIcon   />
-                 <p className="hidden md:block">Settings</p>
+                    <Link to="/setting" aria-label="Create setting">
+                     <SettingIcon   />
+                    <p className="hidden md:block">Settings</p>
+                    </Link>
+                
             </li>
         </ul>
         

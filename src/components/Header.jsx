@@ -1,16 +1,22 @@
-import {Link } from "react-router-dom";
-import {useTheme} from "../contex/ThemeContext.jsx";
+import {Link, useLocation} from "react-router-dom";
 import SearchIcon from "./icons/SearchIcon.jsx";
 import SettingIcon from "./icons/SettingIcon.jsx";
 
 const Header = ({ className }) => {
 
-   const { theme, toggleTheme } = useTheme();
+  
+    const location=useLocation();
+   
+        const isSettingsPage =
+              location.pathname.startsWith("/setting");
+        const pageTitle = isSettingsPage
+              ? "Settings"
+              : "All Notes";
 
   return ( 
     <header className={`flex justify-between px-8 py-[18.5px] 
-                        border-b  border-app-border ${className}`}>
-       <h1 className="text-preset-1 text-app-bright-text flex-1">All Notes </h1>
+                        border-b  border-app-border text-app-bright-text ${className}`}>
+       <h1 className="text-preset-1  flex-1">{pageTitle}</h1>
             <div className="flex gap-4 items-center">
 
              <div className="flex items-center gap-2 px-4 py-[13px]
@@ -21,8 +27,8 @@ const Header = ({ className }) => {
                     type="text"
                     placeholder="by title, content, or tags…"/>
              </div> 
-  <Link  to="/setting" aria-label="Create setting"
-              className="">
+
+      <Link  to="/setting" aria-label="Open settings">
            <SettingIcon className="w-6 text-app-text-muted"/>
        </Link>
           

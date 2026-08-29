@@ -9,16 +9,15 @@ import tags from "../data/tags";
 const Sidebar = ({ className }) => {
 
 
-   const { theme, toggleTheme } = useTheme();
+   const { theme } = useTheme();
+  //  const {fontTheme, setFontTheme,} = useTheme();
 
   return (
    <aside className={`flex w-full flex-col p-4 pb-3 bg-app-background-section 
+                      text-app-text text-preset-4 font-medium
                       border-r  border-app-border ${className}`}   >
 
-         {/* Logo */}
-         <button onClick={toggleTheme}>
-         {theme === "light" ? "Светлая тема" : "Тёмная тема"}
-        </button>
+        
           <img className="w-24 py-3 mb-4"
                 src={theme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"}
                 alt="Notes"
@@ -27,26 +26,28 @@ const Sidebar = ({ className }) => {
         {/* Block All+Archived Notes */}
           <div className="flex flex-col p-3 gap-1 mb-2 border-b  border-app-border ">
             
-             <Link className="group flex items-center p-3 gap-2 text-app-text
-                             hover:bg-app-hover-bg rounded-lg hover:text-app-bright-text" >
+             <Link  to="/" 
+                   className="group flex items-center p-3 gap-2 
+                              hover:bg-app-hover-bg rounded-lg 
+                              hover:text-app-bright-text" >
 
-               <HomeIcon className="text-app-text w-5 group-hover:text-blue-500" />
+               <HomeIcon className=" w-5 group-hover:text-blue-500" />
              
-               <p className="text-preset-5 ">All Notes </p>
+               <p className="">All Notes </p>
 
-                <ChevronRightIcon className="text-app-text w-5 ml-auto opacity-0 transition-opacity group-hover:opacity-100" />
+                <ChevronRightIcon className=" w-5 ml-auto opacity-0 transition-opacity group-hover:opacity-100" />
                
-            {/* <NotesList  /> */}
+           
              </Link>
 
-             <Link className="group flex items-center p-3 gap-2 text-app-text
+             <Link className="group flex items-center p-3 gap-2 
                              hover:bg-app-hover-bg rounded-lg hover:text-app-bright-text" >
 
-               <ArchiveIcon className="text-app-text w-5 group-hover:text-blue-500" />
+               <ArchiveIcon className=" w-5 group-hover:text-blue-500" />
              
-               <p className="text-preset-5 hover:text-app-bright-text">Archived Notes </p>
+               <p className="ext-preset-4 hover:text-app-bright-text">Archived Notes </p>
 
-                <ChevronRightIcon className="text-app-text w-5 ml-auto opacity-0
+                <ChevronRightIcon className="t w-5 ml-auto opacity-0
                                   transition-opacity group-hover:opacity-100" />
                
             {/* <NotesList  /> */}

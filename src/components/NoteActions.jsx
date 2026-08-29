@@ -4,7 +4,8 @@ import ArchiveIcon from "./icons/ArchiveIcon.jsx";
 import DeleteIcon from "./icons/DeleteIcon.jsx";
 const NoteActions = ({ className }) => {
 
-   const { theme, toggleTheme } = useTheme();
+   const { theme } = useTheme();
+   // const {fontTheme, setFontTheme,} = useTheme();
 
    return ( 
     <section className={`flex flex-col pt-5 pl-4 gap-3 bg-app-background-section 

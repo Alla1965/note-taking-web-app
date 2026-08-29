@@ -8,28 +8,33 @@ import MobileNavigation from "./MobileNavigation.jsx";
 
 const NotesList = ({ className }) => {
 
-   const { theme, toggleTheme } = useTheme();
+   const { theme } = useTheme();
+   // const {fontTheme, setFontTheme,} = useTheme();
    const notes = notesData.notes;
    const sortedNotes = [...notes].sort((a,b) => Date.parse(b.lastEdited) - Date.parse(a.lastEdited));
-     
+
   return ( 
-    <section className={`flex flex-col flex-1 min-h-0 overflow-hidden
-                         gap-4 pt-4 pr-4 pb-6 pl-8
-                     border-r border-app-border ${className}`}>
+    <section className={`flex flex-col  min-h-0 w-full
+                         gap-4 py-5 px-4 md:py-6 md:px-8 lg:pt-5 lg:pr-4 lg:pl-8 
+                          h-full  min-w-0 
+                        border-r border-app-border ${className}`}>
+                           
        <Link  to="/notes/new" aria-label="Create new note"
               className="hidden lg:flex lg:justify-center lg:rounded-lg
                           lg:bg-blue-500 lg:text-neutral-0
                           lg:py-3 ">
           + Create New Note
        </Link>
+
          <img className="flex object-contain object-left bg-app-hover-bg w-full
                          h-[54px] px-4 py-[13px]
                           md:h-[74px] md:px-8 md:py-[23px] lg:hidden "
                 src={theme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"}
                 alt="Notes"
-                 />
+          />
+
        <ul className="notes-scrollbar relative  flex flex-col min-h-0 flex-1 
-                      gap-1 list-none m-0 p-0
+                      gap-1 list-none m-0 p-0 
                       overflow-y-auto touch-pan-y">
             {sortedNotes.map((sortedNote) => (
                 <li key={sortedNote.id}
@@ -63,17 +68,18 @@ const NotesList = ({ className }) => {
 
                 </li>
         ))}
+
        </ul>
 
-       <Link to="/notes/new" aria-label="Create new note"
+        <Link to="/notes/new" aria-label="Create new note"
                 className="flex items-center justify-center m-auto w-16 h-16
                           absolute bottom-28 right-9
                           bg-blue-500 text-neutral-0 lg:hidden rounded-full">
-         <img className="w-8 h-8  "
+             <img className="w-8 h-8  "
                 src="/icon-plus.svg"
                 alt="Notes"
                  />
-       </Link>
+        </Link>
 
        <MobileNavigation />
     </section>
