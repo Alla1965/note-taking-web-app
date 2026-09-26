@@ -91,11 +91,14 @@
 @theme inline {
   --color-app-background: var(--app-background);
   --color-app-surface: var(--app-surface);
+  --color-app-hover-input: var(--app-hover-input);
   --color-app-text: var(--app-text);
   --color-app-text-muted: var(--app-text-muted);
+  --color-app-text-muted-semi: var(--app-text-muted-semi);
   --color-app-border: var(--app-border);
   --color-app-bright-text: var(--app-bright-text);
   --color-app-hover-bg: var(--app-hover-bg);
+  --color-app-login-bg: var(--app-login-bg);
   --color-app-border: var(--app-border);
   --color-app-editor-text: var(--app-editor-text);
   --color-app-text-button: var(--app-text-button);
@@ -107,12 +110,15 @@
 [data-theme="light"] {
   --app-background: var(--color-neutral-0);
   --app-background-section: var(--color-neutral-0);
+  --app-hover-input: var(--color-neutral-50);
   --app-surface: var(--color-neutral-200);
   --app-text: var(--color-neutral-700);
   --app-text-muted: var(--color-neutral-500);
+  --app-text-muted-semi: var(--color-neutral-600);
   --app-border: var(--color-neutral-200);
   --app-bright-text: var(--color-neutral-950);
   --app-hover-bg: var(--color-neutral-100);
+  --app-login-bg: var(--color-neutral-100);
   --app-border: var(--color-neutral-300);
   --app-editor-text: var(--color-neutral-800);
   --app-text-button: var(--color-neutral-600);
@@ -124,12 +130,15 @@
 [data-theme="dark"] {
   --app-background: var(--color-neutral-950);
   --app-background-section: var(--color-neutral-800);
+   --app-hover-input: var(--color-neutral-800);
   --app-surface: var(--color-neutral-600);
   --app-text: var(--color-neutral-200);
   --app-text-muted: var(--color-neutral-400);
+   --app-text-muted-semi: var(--color-neutral-300);
   --app-border: var(--color-neutral-800);
   --app-bright-text: var(--color-neutral-0);
   --app-hover-bg: var(--color-neutral-800);
+  --app-login-bg: var(--color-neutral-700);
   --app-border: var(--color-neutral-600);
   --app-editor-text: var(--color-neutral-100);
   --app-text-button: var(--color-neutral-400);
@@ -152,7 +161,7 @@
 
 .notes-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--app-text-muted) var(--app-background);
+  scrollbar-color: var(--app-text-muted) transparent;
 }
 
 .notes-scrollbar::-webkit-scrollbar {
@@ -160,10 +169,17 @@
 }
 
 .notes-scrollbar::-webkit-scrollbar-track {
-  background: var(--app-background);
+  background: transparent;
 }
 
 .notes-scrollbar::-webkit-scrollbar-thumb {
   background: var(--app-text-muted);
   border-radius: 999px;
+}
+input:-webkit-autofill{
+-webkit-box-shadow: 0 0 0 1000px var(--app-background) inset;
+-webkit-text-fill-color: var(--app-text) }
+
+.form-field:hover input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0 1000px var(--app-hover-input) inset
 }

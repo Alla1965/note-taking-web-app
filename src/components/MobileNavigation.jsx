@@ -29,22 +29,37 @@ const { theme } = useTheme();
 
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
                            hover:text-blue-500"> 
+              <Link to="/search"
+                   className="flex h-full w-full flex-col items-center justify-center gap-1 text-app-text hover:text-blue-500"
+                    aria-label="Search notes">
                  <SearchIcon   />
                   <p className="hidden md:block">Search</p>
+              </Link>
             </li>
+
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
                     hover:text-blue-500"> 
-                 <ArchiveIcon   />
+                <Link to="/archived" 
+                      className="flex h-full w-full flex-col items-center justify-center gap-1 text-app-text hover:text-blue-500"
+>
+                  <ArchiveIcon   />
                  <p className="hidden md:block">Archived</p>
+                </Link>
+               
             </li>
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
                     hover:text-blue-500"> 
-                 <TagIcon   />
+               <Link to="/tags">
+               <TagIcon   />
+               </Link>     
+                 
                  <p className="hidden md:block">Tags</p>
             </li>
             <li className="flex flex-1 justify-center items-center md:flex-col md:gap-1 text-app-text  
                     hover:text-blue-500"> 
-                    <Link to="/setting" aria-label="Create setting">
+                    <Link to="/setting" aria-label="Create setting"
+                          className="flex h-full w-full flex-col items-center justify-center gap-1 text-app-text hover:text-blue-500"
+>
                      <SettingIcon   />
                     <p className="hidden md:block">Settings</p>
                     </Link>
